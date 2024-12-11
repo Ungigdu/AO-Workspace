@@ -1,6 +1,6 @@
 // wrapper.js
 (async () => {
-    const module = await import('./src/..js');
+    const module = await import('./src/AcidTokenTest.js');
     
     // Copy all exports to the global object
     Object.entries(module).forEach(([key, value]) => {
