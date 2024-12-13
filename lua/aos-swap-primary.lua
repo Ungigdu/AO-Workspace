@@ -104,6 +104,20 @@ Handlers.add('info', 'Info',
     end
 )
 
+Handlers.add('YIn', 'YIn', 
+    function(msg)
+        if msg.reply then
+            msg.reply({
+              YIn = YIn
+            })
+          else
+            Send({Target = msg.From, 
+            YIn = YIn
+           })
+          end
+    end
+)
+
 Handlers.add('getAmountOut',
     function(msg) return ((msg.Action == 'GetAmountOut') or (msg.Action == 'FFP.GetAmountOut')) end, 
     function(msg)

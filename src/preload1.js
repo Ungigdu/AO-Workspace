@@ -42,14 +42,8 @@ async function getDataFromAO(process, action, data) {
       return '';
     }
   
-    const resp = result.Messages?.length > 0 ? result.Messages[0].Data : null;
-  
-    if (resp) {
-      return JSON.parse(resp);
-    } else {
-      console.error("No messages received");
-      return null;
-    }
+    const resp = result.Messages?.length > 0 ? result.Messages[0] : null;
+    return resp;
 }
 
 // const RumbleProcess = "yBt50ZIij0gkWgFOVWsxyXUmu4Rz8UiqWgxG9YUsgMg";

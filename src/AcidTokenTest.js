@@ -22,6 +22,7 @@ async function Transfer(wallet, process, quantity, recepient) {
     return await messageToAO(wallet, process, "Transfer", t, {});
 }
 
+//recepient is the pool process id
 async function Swap(wallet, tokenIn, quantity, recepient) {
     const t = [{ name: 'Quantity', value: quantity }, 
                { name: 'Recipient', value: recepient }, 
@@ -31,10 +32,17 @@ async function Swap(wallet, tokenIn, quantity, recepient) {
     return await messageToAO(wallet, tokenIn, "Transfer", t, {});
 }
 
+//pool set the amm pool process id
+async function GetYIn(pool) {
+    const t = [];
+    return (await getDataFromAO(pool, "YIn", t)).Tags;
+}
+
 export {
     DefaultWallet,
     AcidTokenProcess,
     Mint,
     Transfer,
-    Swap
+    Swap,
+    GetYIn
 }
