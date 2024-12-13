@@ -42,6 +42,7 @@ async function getDataFromAO(process, action, data) {
       return '';
     }
   
+    console.log("getDataFromAO -> result:", result)
     const resp = result.Messages?.length > 0 ? result.Messages[0] : null;
     return resp;
 }

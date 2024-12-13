@@ -108,11 +108,17 @@ Handlers.add('YIn', 'YIn',
     function(msg)
         if msg.reply then
             msg.reply({
-              YIn = YIn
+              YIn = YIn,
+              XOut = XOut,
+              TimeStamp = tostring(msg.Timestamp),
+              isFinished = tostring(Finished)
             })
           else
             Send({Target = msg.From, 
-            YIn = YIn
+            YIn = YIn,
+            XOut = XOut,
+            TimeStamp = tostring(msg.Timestamp),
+            isFinished = tostring(Finished)
            })
           end
     end
