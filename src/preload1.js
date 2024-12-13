@@ -9,7 +9,7 @@ import {
     createDataItemSigner
 } from "@permaweb/aoconnect";
 
-async function messageToAO(process, action, tags, data, wallet) {
+async function messageToAO(wallet,process, action, tags, data) {
     try {
         const t = tags ? tags : [];
         const d = data ? data : {};

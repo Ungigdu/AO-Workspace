@@ -58,9 +58,9 @@ Variant = "0.0.3"
 Denomination = Denomination or 12
 Balances = Balances or { [ao.id] = utils.toBalanceValue(10000 * 10 ^ Denomination) }
 TotalSupply = TotalSupply or utils.toBalanceValue(10000 * 10 ^ Denomination)
-Name = Name or 'Acid Coin 1'
-Ticker = Ticker or 'ACID 1'
-Logo = Logo or 'elLBTH-eBMvjSJJpccwQsDa_LMR03k6D7rfu6jY8kkQ'
+Name = Name or 'Fake Wrapped AR'
+Ticker = Ticker or 'fwAR'
+Logo = Logo or 'L99jaxRKQKJt9CqoJtPaieGPEhJD3wNhR4iGqc8amXs'
 
 --[[
      Add handlers for each incoming Action defined by the ao Standard Token Specification

@@ -12,13 +12,29 @@ const DefaultWallet = JSON.parse(
 
 const AcidTokenProcess = "O0DQgVialkpP9-jGU-zgkLVDBlY_syL0bono_o9i-VM";
 
-async function Mint(process, quantity, wallet) {
+async function Mint(wallet, process, quantity) {
     const t = [{ name: 'Quantity', value: quantity }];
-    return await messageToAO(process, "Mint", t, {}, wallet);
+    return await messageToAO(wallet, process, "Mint", t, {});
+}
+
+async function Transfer(wallet, process, quantity, recepient) {
+    const t = [{ name: 'Quantity', value: quantity }, { name: 'Recipient', value: recepient }];
+    return await messageToAO(wallet, process, "Transfer", t, {});
+}
+
+async function Swap(wallet, tokenIn, quantity, recepient) {
+    const t = [{ name: 'Quantity', value: quantity }, 
+               { name: 'Recipient', value: recepient }, 
+               {name: 'X-PS-For', value: 'Swap'},
+               {name: 'X-PS-MinAmountOut', value: '1'}
+            ];
+    return await messageToAO(wallet, tokenIn, "Transfer", t, {});
 }
 
 export {
     DefaultWallet,
     AcidTokenProcess,
-    Mint
+    Mint,
+    Transfer,
+    Swap
 }
